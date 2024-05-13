@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <%- include ('./partials/header.ejs'); %>
+    <main>
+        <section class="full-page" id="about-me">
+            <div class="name">
+                <h1>Elaine Wilberforce</h1>
+            </div>
+
+            <div class="container">
+                <div class="info">
+                    <p>Hey! I am a 23 year old student at the Amsterdam University of Applied
+                        Sciences, studying the bachelor Communication and Multimedia design.</p>
+
+                        <p>Ever since I was little, I have had a passion for the web and started a career in web design and development 
+                            after my electrical engineering degree. I'm currently focused on front end design and development, and enjoy 
+                            designing in a playful, colourful and interactive way. Over the years, I have learnt a lot and continue to 
+                            learn and improve my skills.</p>
+                </div>
+
+                <div class="photocard">
+                    <img src="images/elaine.jpg" alt="picture of Elaine Wilberforce">
+                    <div class="caption">
+                        <p>🌸⭐️</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="marquee" data-marquee-duration="30">
+                <div class="marquee-inner">
+                    <ul>
+                        <li>Third year student Communication and Multimedia Design</li>
+                        <li>Finished the propedeutic year in Cum Laude</li>
+                        <li>Available for internships starting 2024-2025</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="full-page projects" id="projects">
+            <h2>Projects</h2>
+            <h3>03/23</h3>
+            <ul>
+                <li data-date="11/22">
+                <a href="https://www.behance.net/gallery/167237005/Salut-Parcel-return-app">
+                    <img src="/images/Salut-retour-app.png" alt="Salut Retour app" />
+                </a>
+                </li>
+
+                <li data-date="10/22">
+                <a href="ade-redesign.html">
+                    <img src="/images/ADE-redesigning.png" alt="Picture ADE site" />
+                </a>
+                </li>
+
+                <li data-date="03/22">
+                <a href="https://www.behance.net/gallery/143797709/Zoek-een-boek-Gemeente-Amsterdam">
+                    <img src="/images/Gemeente-amsterdam-case.png" alt="Zoek een Boek" />
+                </a>
+                </li>
+
+                <li data-date="11/21">
+                <a href="https://www.behance.net/gallery/143793153/Mokum-Corners">
+                    <img src="/images/Mokum-corners.png" alt="Mokum Corners" />
+                </a>
+                </li>
+
+                <li data-date="10/21">
+                <a href="https://www.behance.net/gallery/143799263/Laines-Seafood">
+                    <img src="/images/Laines-seafood.png" alt="Laine's Seafood" />
+                </a>
+                </li>
+
+                <li data-date="> 2017">
+                <a href="https://www.behance.net/elainewilberf">
+                    <img src="/images/personal-projects-behance.png" alt="Behance Projects" />
+                </a>
+                </li>
+            </ul>
+        </section>
+        <section class="full-page work" id="skills"></section>
+        <section class="full-page work" id="location"></section>
+
+        <%- include ('./partials/footer.ejs'); %>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

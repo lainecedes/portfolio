@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Paytone+One&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+/* Fonts: Syne, Lexend Deca, Paytone One, Dela Gothic One */
+
+
+
+:root {
+  --black: #000;
+  --white: #FFF;
+  --thistle: #cdb4dbff;
+--carnation-pink: #ffafccff;
+--light-sky-blue: #a2d2ffff;
+
+--rose: #f72585ff;
+--grape: #7209b7ff;
+--zaffre: #3a0ca3ff;
+--neon-blue: #4361eeff;
+--vivid-sky-blue: #4cc9f0ff;
+
+}
+
+html {
+  box-sizing: border-box;
+
+  scroll-snap-type: y mandatory;
+  background: lavender;
+  background-image: radial-gradient(var(--black) 5%, transparent 0);
+  background-size: 35px 35px;
+}
+
+body {
+  margin: 0;
+}
+
+
+/* -------- */
+/* Partials */
+/* -------- */
+
+header {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 2000;
+  height: 4em;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  padding-left: 2em;
+
+    & p {
+      width: max-content;
+    }
+    & a {
+      text-decoration: none;
+      color: inherit;
+      text-transform: uppercase;
+      font-family: "Dela Gothic One", sans-serif;
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+}
+
+.pager-menu {
+  display: flex;
+  text-transform: uppercase;
+  font-family: "Dela Gothic One", sans-serif;
+}
+.pager-menu ul {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding-right: 3em;
+
+  & li {
+    list-style: none;
+    font-size: 0.9em;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  & li:hover {
+    border: 2px var(--black) solid;
+    box-shadow: 0.3em 0.3em 0 0 black;
+    padding: 0.5em;
+  }
+}
+
+
+
+
+
+
+/* ------------ */
+/* General Code */
+/* ------------ */
+
+
+main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Lexend Deca';
+}
+
+
+.full-page {
+  height: 100vh;
+  scroll-snap-align: start;
+  background-color: lightblue;
+  background-image: radial-gradient(var(--black) 5%, transparent 0);
+  background-size: 35px 35px;
+}
+
+.container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 3em;
+
+      margin: 0 5em 3em 5em;
+}
+
+  .name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2em;
+      width: max-content;
+      margin: 6em auto 2em auto;
+      padding: 2em;
+      border-radius: 2em;
+
+      & h1 {
+        font-family: 'Syne';
+        font-variation-settings: 'wdth' 1000, 'wght' 740;
+
+        font-size: 3.5em;
+      }
+  }
+
+  .photocard {
+    position: relative;
+    background: var(--white);
+    width: max-content;
+    height: max-content;
+    padding: 1em 1em 0 1em;
+    z-index: 100;
+    border: 2px solid black;
+    box-shadow: 1em 1em 2px 1px rgba(58, 12, 163, .2);
+
+    & img {
+      width: 12em;
+    }
+
+    & p {
+      margin: auto;
+      padding: 0 0 2em 0;
+    }
+  }
+
+  .info {
+    background-color: var(--thistle);
+    border: 2px solid black;
+    box-shadow: 0.5em 0.5em 0 0 black;
+    height: min-content;
+    padding: 2em 2em 1.5em 2em;
+
+    & p {
+      margin: 0 0 1em 0;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+
+
+
+  .marquee {
+    padding: 1em;
+    background: var(--carnation-pink);
+  }
+
+
+.marquee-inner {
+  display: flex;
+  overflow: hidden;
+  width: 100vw; 
+}
+
+.marquee-inner ul {
+  display: flex;
+  flex-direction: row;
+  text-wrap: nowrap;
+  gap: 3em;
+  list-style: none; 
+  padding: 0;
+  margin: 0; 
+
+  & li {
+    padding-left: 2.5em;
+    font-family: 'Syne';
+    font-variation-settings: 'wdth' 1000, 'wght' 740;
+  }
+
+  & li:last-child {
+    padding-right: 2.5em;
+  }
+
+  & li::marker {
+    content: "✰"; 
+    width: 2em;
+    margin-left: 5px;
+  }
+}
+
+/* -------------- */
+/* Portfolio work */
+/* -------------- */
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects h2 {
+  margin: 1em 0 0 0; 
+}
+
+.projects h3 {
+  font-size: 5.5em;
+  margin: 0;
+  background: linear-gradient(-60deg, #904e95, #904e95, #e73c7e, #ee7752);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects img {
+  width: 100%;
+}
+
+.projects ul {
+  display: flex;
+  align-items: center;
+  gap: 5em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* Changed to horizontal scrolling */
+  scroll-behavior: smooth;
+  overscroll-behavior: contain auto;
+  justify-content: center; /* Center the list items */
+}
+
+.projects ul::-webkit-scrollbar {
+  display: none; 
+}
+
+.projects ul li {
+  scroll-snap-align: center;
+}
+
+.projects p {
+  margin: 1em 0 0 0;
+  padding: 0;
+}
+
+.projects a {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Adjust width as needed */
+}
