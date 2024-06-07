@@ -2,23 +2,23 @@ gsap.registerPlugin(ScrollTrigger);
 console.log("hoi");
 
 
-const infoText = new SplitType('.info p:nth-of-type(1), .info p:nth-of-type(2)', { types: 'lines' })
-const lines = infoText.lines;
+// const infoText = new SplitType('.info p:nth-of-type(1), .info p:nth-of-type(2)', { types: 'lines' })
+// const lines = infoText.lines;
 
-gsap.fromTo(
-    lines,
-    { 
-      y: 100,
-      opacity: 0
-    },
-    {
-      y: 0,
-      opacity: 1,
-      stagger: 0.05,
-      duration: 1.5,
-      ease: 'power4.out',
-    }
-  )
+// gsap.fromTo(
+//     lines,
+//     { 
+//       y: 100,
+//       opacity: 0
+//     },
+//     {
+//       y: 0,
+//       opacity: 1,
+//       stagger: 0.05,
+//       duration: 1.5,
+//       ease: 'power4.out',
+//     }
+//   )
 
 
  // GSAP animation for .photocard
@@ -83,37 +83,38 @@ const init = () => {
 document.addEventListener('DOMContentLoaded', init);
 
 
-function slideCarousel () {
-  const slides = document.querySelectorAll(".projects ul li"); // "slides" carousel
-  const slideDatum = document.querySelector(".projects h3") // h3, data events
+function animateCards() {
+  const cards = document.querySelectorAll('.projects-cards li');
 
-  const observer = new IntersectionObserver(entries => 
-      {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  entry.target.classList.add("show");
-      
-                  slideDatum.textContent = entry.target.dataset.date;
-                  
-              } else {
-                  entry.target.classList.remove("show");
-              }
-          });
-      },
-      { // percentage of li in threshold
-          root: document.querySelector('.projects ul'),
-
-          threshold: 0.5
+  cards.forEach((card, index) => {
+    gsap.fromTo(card, { scale: 0 }, { 
+      scale: 1.1, 
+      duration: 0.3, 
+      ease: "back.out(1.7)",
+      delay: index * 0.1,
+      onComplete: () => { 
+        gsap.to(card, {
+          scale: 1,
+          duration: 0.3,
+          ease: "back.out(1.7)"
+        });
       }
-  )
-  
-  // observe each slide
-  slides.forEach(slide => {
-      observer.observe(slide)
-  })
-
- console.log(observer)
-
+    });
+  });
 }
 
-slideCarousel();
+
+// Intersection Observer for pop in animation
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCards();
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1, 
+});
+
+const projectsSection = document.querySelector('.projects');
+observer.observe(projectsSection);

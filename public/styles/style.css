@@ -33,6 +33,17 @@ body {
   margin: 0;
 }
 
+html, body {
+  height: 100dvh;
+  margin: 0;
+  overflow-x: hidden;
+
+}
+
+main {
+  height: 100%;
+  font-family: 'Lexend Deca';
+}
 
 /* -------- */
 /* Partials */
@@ -44,14 +55,15 @@ header {
   position: fixed;
   z-index: 2000;
   height: 4em;
+  width: 100%;
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
-  padding-left: 2em;
+  padding: 0 2em;
+  width: 100%;
 
     & p {
       width: max-content;
@@ -74,24 +86,33 @@ nav {
 .pager-menu ul {
   display: flex;
   align-items: center;
-  gap: 0.5em;
-  padding-right: 3em;
 
   & li {
     list-style: none;
     font-size: 0.9em;
     margin-right: 10px;
     cursor: pointer;
+    transition: all 0.1s ease;
   }
   & li:hover {
     border: 2px var(--black) solid;
     box-shadow: 0.3em 0.3em 0 0 black;
     padding: 0.5em;
+    transition: all 0.3s ease;
   }
 }
 
 
-
+/* Hamburger menu */
+.menu-toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
 
 
 
@@ -99,31 +120,55 @@ nav {
 /* General Code */
 /* ------------ */
 
-
-main {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-family: 'Lexend Deca';
-}
-
+ h2 {
+    font-size: 3em;
+    font-family: 'Syne';
+    font-variation-settings: 'wdth' 1000, 'wght' 740;
+ }
 
 .full-page {
-  height: 100vh;
   scroll-snap-align: start;
   background-color: lightblue;
   background-image: radial-gradient(var(--black) 5%, transparent 0);
   background-size: 35px 35px;
+
+  display: flex;
+  flex-direction: column;
+  height: unset;
 }
+
+/* Set height to 100% for screens larger than 900px */
+@media (min-width: 1000px) {
+  .full-page {
+    height: 100vh;
+  }
+}
+
+.projects, .work, .location {
+  flex: 1;
+}
+
+.projects {
+    background-color: var(--thistle)
+}
+
+.work {
+    background-color: var(--carnation-pink);
+}
+
+.location {
+  background-color: lightblue;
+}
+
 
 .container {
       display: flex;
       flex-direction: row;
       justify-content: center;
       gap: 3em;
+      font-size: 1.2em;
 
-      margin: 0 5em 3em 5em;
+      margin: 0 4em 3em 5em;
 }
 
   .name {
@@ -132,7 +177,7 @@ main {
       justify-content: center;
       height: 2em;
       width: max-content;
-      margin: 6em auto 2em auto;
+      margin: 4em auto 2em auto;
       padding: 2em;
       border-radius: 2em;
 
@@ -147,8 +192,8 @@ main {
   .photocard {
     position: relative;
     background: var(--white);
-    width: max-content;
-    height: max-content;
+    width: 12em;
+    height: 18em;
     padding: 1em 1em 0 1em;
     z-index: 100;
     border: 2px solid black;
@@ -164,117 +209,151 @@ main {
     }
   }
 
+
   .info {
     background-color: var(--thistle);
     border: 2px solid black;
     box-shadow: 0.5em 0.5em 0 0 black;
-    height: min-content;
-    padding: 2em 2em 1.5em 2em;
+    padding: 2em;
+    max-width: 50em;
+  }
+  
+  .info p {
+    margin: 0 0 1em 0;
+    width: 100%;
+  }
+  
+  /* One column for smaller screens */
+  @media (max-width: 900px) {
+    .info p {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .container {
+      flex-direction: column-reverse;
+    }
 
-    & p {
-      margin: 0 0 1em 0;
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    .photocard {
+      align-self: center;
     }
   }
+  
 
 
 
-  .marquee {
-    padding: 1em;
-    background: var(--carnation-pink);
-  }
-
+ /* Marquee */
+.marquee {
+  position: relative;
+  top: -1.5em;
+  padding: 1em;
+  background: var(--carnation-pink);
+  width: 100%;
+}
 
 .marquee-inner {
   display: flex;
   overflow: hidden;
-  width: 100vw; 
+  width: 100%;
 }
 
+/* Marquee List */
 .marquee-inner ul {
   display: flex;
   flex-direction: row;
-  text-wrap: nowrap;
+  white-space: nowrap;
   gap: 3em;
-  list-style: none; 
+  list-style: none;
   padding: 0;
-  margin: 0; 
+  margin: 0;
+}
 
-  & li {
-    padding-left: 2.5em;
-    font-family: 'Syne';
-    font-variation-settings: 'wdth' 1000, 'wght' 740;
-  }
+.marquee-inner ul li {
+  padding-left: 2.5em;
+  font-size: 1.2em;
+  font-family: 'Syne';
+  font-variation-settings: 'wdth' 1000, 'wght' 740;
+}
 
-  & li:last-child {
-    padding-right: 2.5em;
-  }
+.marquee-inner ul li:last-child {
+  padding-right: 2.5em;
+}
 
-  & li::marker {
-    content: "✰"; 
-    width: 2em;
-    margin-left: 5px;
-  }
+.marquee-inner ul li::marker {
+  content: "✰";
+  width: 2em;
+  margin-left: 5px;
 }
 
 /* -------------- */
 /* Portfolio work */
 /* -------------- */
 
-.projects {
+.skills, .location, .projects {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
-.projects h2 {
-  margin: 1em 0 0 0; 
+.projects {
+  padding: 0 0 3em 0;
+
+  h2 {
+
+  }
 }
 
-.projects h3 {
-  font-size: 5.5em;
+
+.projects-cards {
+  display: grid;
+  gap: 1em;
+  padding: 0;
   margin: 0;
-  background: linear-gradient(-60deg, #904e95, #904e95, #e73c7e, #ee7752);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  list-style: none; 
+  max-width: 1000px;
 }
 
-.projects img {
+.projects-cards li {
+  padding: 2em;
+}
+
+.projects-cards img {
   width: 100%;
+  border: 1px solid black;
+  box-shadow: 0.5em 0.5em 0 0 black;
 }
 
-.projects ul {
-  display: flex;
-  align-items: center;
-  gap: 5em;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory; /* Changed to horizontal scrolling */
-  scroll-behavior: smooth;
-  overscroll-behavior: contain auto;
-  justify-content: center; /* Center the list items */
+/* Two columns for larger screens */
+
+
+@media (min-width: 900px) {
+  .projects-cards {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
 }
 
-.projects ul::-webkit-scrollbar {
-  display: none; 
+@media (max-width: 899px) and (min-width: 601px) {
+  .name {
+    margin: 7em auto 2em auto;
+    font-size: 0.7em;
+  }
+  .projects-cards {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+
+
+} 
+
+@media (max-width: 600px) {
+  .name {
+    margin: 7em auto 2em auto;
+    font-size: 0.7em;
+  }
+  .projects-cards {
+    grid-template-columns: 1fr;
+  }
+
 }
 
-.projects ul li {
-  scroll-snap-align: center;
-}
 
-.projects p {
-  margin: 1em 0 0 0;
-  padding: 0;
-}
-
-.projects a {
-  display: flex;
-  justify-content: center;
-  width: 100%; /* Adjust width as needed */
-}

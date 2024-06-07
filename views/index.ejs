@@ -47,47 +47,24 @@
 
         <section class="full-page projects" id="projects">
             <h2>Projects</h2>
-            <h3>03/23</h3>
-            <ul>
-                <li data-date="11/22">
-                <a href="https://www.behance.net/gallery/167237005/Salut-Parcel-return-app">
-                    <img src="/images/Salut-retour-app.png" alt="Salut Retour app" />
-                </a>
+            <ul class="projects-cards">
+                <% projects.forEach(project => { %>
+                  <li>
+                    <img src="<%= project.img %>" alt="Picture of <%= project.name %>"/>
+                    <a href="<%= project.url %>"></a>
+                  </li>
+                <% }) %>
+                <li>
+                  <p>The Archive</p>
+                  <a href="#"></a>
                 </li>
-
-                <li data-date="10/22">
-                <a href="ade-redesign.html">
-                    <img src="/images/ADE-redesigning.png" alt="Picture ADE site" />
-                </a>
-                </li>
-
-                <li data-date="03/22">
-                <a href="https://www.behance.net/gallery/143797709/Zoek-een-boek-Gemeente-Amsterdam">
-                    <img src="/images/Gemeente-amsterdam-case.png" alt="Zoek een Boek" />
-                </a>
-                </li>
-
-                <li data-date="11/21">
-                <a href="https://www.behance.net/gallery/143793153/Mokum-Corners">
-                    <img src="/images/Mokum-corners.png" alt="Mokum Corners" />
-                </a>
-                </li>
-
-                <li data-date="10/21">
-                <a href="https://www.behance.net/gallery/143799263/Laines-Seafood">
-                    <img src="/images/Laines-seafood.png" alt="Laine's Seafood" />
-                </a>
-                </li>
-
-                <li data-date="> 2017">
-                <a href="https://www.behance.net/elainewilberf">
-                    <img src="/images/personal-projects-behance.png" alt="Behance Projects" />
-                </a>
-                </li>
-            </ul>
+              </ul>
         </section>
-        <section class="full-page work" id="skills"></section>
-        <section class="full-page work" id="location"></section>
+        
+        
+        <section class="full-page contact" id="contact">
+            <h2>Contact</h2>
+        </section>
 
         <%- include ('./partials/footer.ejs'); %>
     </main>

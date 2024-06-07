@@ -1,0 +1,18 @@
+{
+    "projects": [
+      {
+        "name": "Mokum Corners",
+        "img": "./images/mokum-corners.png",
+        "pageUrl": "mokumcorners",
+        "url": "https://github.com/username/project1"
+      },
+      {
+        "name": "Salut",
+        "img": "./images/salut.png",
+        "pageUrl": "salut-app",
+        "githubUrl": "https://github.com/username/project2"
+      }
+    ]
+  }
+
+  
