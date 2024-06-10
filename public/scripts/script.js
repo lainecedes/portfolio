@@ -1,24 +1,46 @@
 gsap.registerPlugin(ScrollTrigger);
-console.log("hoi");
 
 
-// const infoText = new SplitType('.info p:nth-of-type(1), .info p:nth-of-type(2)', { types: 'lines' })
-// const lines = infoText.lines;
 
-// gsap.fromTo(
-//     lines,
-//     { 
-//       y: 100,
-//       opacity: 0
-//     },
-//     {
-//       y: 0,
-//       opacity: 1,
-//       stagger: 0.05,
-//       duration: 1.5,
-//       ease: 'power4.out',
-//     }
-//   )
+
+
+// Hamburger menu
+var menuButton = document.querySelector(".menu-button");
+
+menuButton.addEventListener("click", menuActive);
+
+function menuActive() {
+  var navBar = document.querySelector(".header");
+  navBar.classList.toggle("active");
+}
+
+// Get all the links in the menu
+var menuLinks = document.querySelectorAll(".pager-menu ul li a");
+
+// Add event listener to each link
+menuLinks.forEach(function(link) {
+  link.addEventListener("click", function(event) {
+    // Prevent the default behavior of the link
+    event.preventDefault();
+
+    // Close the hamburger menu
+    var navBar = document.querySelector(".header");
+    navBar.classList.remove("active");
+
+    // Get the target section's id from the link's href attribute
+    var targetId = link.getAttribute("href").substring(1);
+
+    // Scroll to the target section
+    var targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+
+
+
+
 
 
  // GSAP animation for .photocard

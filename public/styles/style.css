@@ -49,6 +49,7 @@ main {
 /* Partials */
 /* -------- */
 
+/* Common styles for the header */
 header {
   display: flex;
   flex-direction: row;
@@ -58,24 +59,64 @@ header {
   width: 100%;
 }
 
-nav {
+/* Styles for the navigation menu */
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2em;
   width: 100%;
+}
 
-    & p {
-      width: max-content;
-    }
-    & a {
-      text-decoration: none;
-      color: inherit;
-      text-transform: uppercase;
-      font-family: "Dela Gothic One", sans-serif;
-      font-size: 0.9em;
-      cursor: pointer;
-    }
+.header p {
+  width: max-content;
+}
+
+.header a {
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 0.9em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Styles for the menu button */
+.menu-button {
+  appearance: none;
+  border: none;
+  background: none;
+  position: relative;
+  z-index: 100;
+
+  img {
+    width: 2.5em;
+  }
+}
+
+.header.active .menu-button img {
+  content: url('../images/menu-close.png');
+}
+
+/* Styles for the menu items */
+.header ul {
+  display: flex;
+  gap: 1em;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  background: var(--carnation-pink);
+  background-image: radial-gradient(var(--black) 5%, transparent 0);
+  background-size: 35px 35px;
+  transform: translateX(100%);
+}
+
+.header.active ul {
+  transform: translateX(0%);
 }
 
 .pager-menu {
@@ -83,35 +124,50 @@ nav {
   text-transform: uppercase;
   font-family: "Dela Gothic One", sans-serif;
 }
+
 .pager-menu ul {
   display: flex;
   align-items: center;
+}
 
-  & li {
-    list-style: none;
-    font-size: 0.9em;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: all 0.1s ease;
+.pager-menu ul li {
+  list-style: none;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  flex-basis: 9em;
+  flex-grow: 1;
+}
+
+.pager-menu ul li:hover > *:not(button) {
+  border: 2px var(--black) solid;
+  box-shadow: 0.3em 0.3em 0 0 black;
+  padding: 0.5em;
+  transition: all 0.3s ease;
+}
+
+/* Hide the button on larger screens */
+@media (min-width: 800px) {
+  .header button {
+    display: none;
   }
-  & li:hover {
-    border: 2px var(--black) solid;
-    box-shadow: 0.3em 0.3em 0 0 black;
-    padding: 0.5em;
-    transition: all 0.3s ease;
+
+  .header ul {
+    position: static;
+    transform: none;
+    background: none;
+    padding: 0;
   }
 }
 
-
-/* Hamburger menu */
-.menu-toggle {
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  position: relative;
+/* Change layout of menu items to column when button is active */
+@media (max-width: 800px) {
+  .header.active .pager-menu ul {
+    flex-direction: column;
+    font-size: 2em;
+    margin: 0;
+    padding: 2em 0 0 0;
+  }
 }
 
 
@@ -144,7 +200,7 @@ nav {
   }
 }
 
-.projects, .work, .location {
+.projects {
   flex: 1;
 }
 
@@ -152,11 +208,11 @@ nav {
     background-color: var(--thistle)
 }
 
-.work {
-    background-color: var(--carnation-pink);
+.skills {
+    background-color: var(--light-sky-blue);
 }
 
-.location {
+.contact {
   background-color: lightblue;
 }
 
@@ -166,7 +222,7 @@ nav {
       flex-direction: row;
       justify-content: center;
       gap: 3em;
-      font-size: 1.2em;
+      font-size: 1em;
 
       margin: 0 4em 3em 5em;
 }
@@ -289,7 +345,7 @@ nav {
 /* Portfolio work */
 /* -------------- */
 
-.skills, .location, .projects {
+.skills, .contact, .projects {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -297,17 +353,16 @@ nav {
 }
 
 .projects {
-  padding: 0 0 3em 0;
+  padding: 3em 0 3em 0;
 
   h2 {
-
+    margin: 0;
   }
 }
 
 
 .projects-cards {
   display: grid;
-  gap: 1em;
   padding: 0;
   margin: 0;
   list-style: none; 
@@ -324,7 +379,82 @@ nav {
   box-shadow: 0.5em 0.5em 0 0 black;
 }
 
+/* ----------- */
+/* -- SKILLS --*/
+/* ----------- */
+
+.skills {
+  padding: 2em 0 7em 0;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2em;
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  li {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.3em;
+  }
+
+  li img {
+    border: 2px var(--black) solid;
+    box-shadow: 0.3em 0.3em 0 0 black;
+    padding: 0.5em;
+  }
+}
+
+.front-end, .back-end, .others {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.front-end li, .back-end li, .others li {
+    margin-bottom: 1.5em;
+}
+
+.front-end img {
+  width: 4em;
+}
+
+.front-end ul > li:nth-of-type(3) > img, 
+.front-end ul > li:nth-of-type(4) > img {
+  width: 3em;
+}
+
+.back-end img, .others img {
+  width: 4em;
+}
+
+
+
+
+.contact {
+  padding: 2em 0 5em 0;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2em;
+}
+
+
+/* ------------------------------ */
+/* ------- RESPONSIVENESS ------- */
+/* ------------------------------ */
 /* Two columns for larger screens */
+/* ------------------------------ */
 
 
 @media (min-width: 900px) {
@@ -342,6 +472,28 @@ nav {
     grid-template-columns: repeat(2, minmax(200px, 1fr));
   }
 
+  /* Skills section responsiveness */
+
+  .skills {
+    padding: 0 0 3em 0;
+  }
+
+  .skills-container {
+    flex-direction: column;
+  }
+
+  .front-end img {
+    width: 6em;
+  }
+  
+  .front-end ul > li:nth-of-type(3) > img, 
+  .front-end ul > li:nth-of-type(4) > img {
+    width: 5em;
+  }
+  
+  .back-end img, .others img {
+    width: 7em;
+  }
 
 } 
 
@@ -354,6 +506,15 @@ nav {
     grid-template-columns: 1fr;
   }
 
+  /* Skills section responsiveness */
+
+  .skills {
+    padding: 0 0 3em 0;
+  }
+
+  .skills-container {
+    display: flex;
+    flex-direction: column;
+  }
+
 }
-
-
