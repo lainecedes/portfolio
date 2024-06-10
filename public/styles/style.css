@@ -132,7 +132,7 @@ header {
 
 .pager-menu ul li {
   list-style: none;
-  font-size: 0.9em;
+  font-size: 1em;
   cursor: pointer;
   transition: all 0.1s ease;
   flex-basis: 9em;
@@ -277,6 +277,7 @@ header {
   .info p {
     margin: 0 0 1em 0;
     width: 100%;
+    font-size: 1.3em;
   }
   
   /* One column for smaller screens */
@@ -322,6 +323,7 @@ header {
   list-style: none;
   padding: 0;
   margin: 0;
+  font-size: 1.2em;
 }
 
 .marquee-inner ul li {
