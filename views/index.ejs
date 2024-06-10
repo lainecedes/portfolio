@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Elaine Wilberforce - Front-End Designer</title>
     <link rel="stylesheet" href="/styles/style.css?v=1.0">
+    <link rel="icon" href="../images/icons/lainecedes.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -50,16 +51,19 @@
             <ul class="projects-cards">
                 <% projects.forEach(project => { %>
                   <li>
-                    <img src="<%= project.img %>" alt="Picture of <%= project.name %>"/>
-                    <a href="<%= project.url %>"></a>
+                    <a href="<%= project.url %>">
+                      <img src="<%= project.img %>" alt="Picture of <%= project.name %>"/>
+                    </a>
                   </li>
                 <% }) %>
                 <li>
-                  <p>The Archive</p>
-                  <a href="#"></a>
+                    <a href="#">
+                        <p>The Archive</p>
+                    </a>
                 </li>
-              </ul>
+            </ul>
         </section>
+        
         
 
         <section class="full-page skills" id="skills">
@@ -100,18 +104,17 @@
             <h2>Contact</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <p>I am currently looking for a</p>
-                    <p>front-end design or development internship</p>
-                    <p>for <strong>10 weeks and 20 weeks</strong></p>
-                    <p>starting in September 2024 and onwards.</p>
+                    <p>I am currently looking for a front-end design or development internship for 
+                    <strong>10 weeks and 20 weeks</strong> starting in September 2024 and onwards.</p>
+                 
                     <p>Feel free to contact me if you are interested in my work!</p>
                 </div>
 
                 <div class="social-links">
                     <ul>
-                        <li>Github</li>
-                        <li>Github</li>
-                        <li>LinkedIn</li>
+                        <li><a href="https://www.github.com/lainecedes"><img src="../images/icons/github-mark.png" alt="GitHub icon">Github</a></li>
+                        <li><a href="https://www.linkedin.com/in/elainewilberforce"><img src="../images/icons/linkedin.png" alt="LinkedIn icon">LinkedIn</a></li>
+                        <li><a href="mailto:hi@elainewilberforce.com">hi@elainewilberforce.com</a></li>
                     </ul>
                 </div>
             </div>

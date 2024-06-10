@@ -6,7 +6,7 @@
         "lang": "EN",
         "img": "../images/mokumcorners.png",
         "pageUrl": "mokum-corners",
-        "url": "https://github.com/username/project1"
+        "url": "https://www.behance.net/gallery/143793153/Mokum-Corners"
       },
       {
         "name": "Salut",
@@ -14,15 +14,15 @@
         "lang": "EN",
         "img": "../images/salut.png",
         "pageUrl": "salut-app",
-        "url": ""
+        "url": "https://www.behance.net/gallery/167237005/Salut-Parcel-return-app"
       },
       {
         "name": "ADE",
         "description": "Redesigning the ADE website with accesibility in mind",
         "lang": ["NL", "EN"],
         "img": "../images/ade.png",
-        "pageUrl": "salut-app",
-        "url": "https://github.com/username/project2"
+        "pageUrl": "ade-redesign",
+        "url": "https://github.com/lainecedes/FED2022"
       },
       {
         "name": "Creative Captioning, Bitch!",
@@ -30,7 +30,7 @@
         "lang": "NL",
         "img": "../images/creative-captioning.png",
         "pageUrl": "creative-captioning",
-        "url": "https://github.com/username/project2"
+        "url": "https://github.com/lainecedes/HCD2024"
       },
       {
         "name": "Music Gallery",
@@ -38,7 +38,7 @@
         "lang": "EN",
         "img": "../images/music-gallery.png",
         "pageUrl": "music-gallery",
-        "url": "https://github.com/username/project2"
+        "url": "https://github.com/lainecedes/API-2324"
       }
     ]
   }
