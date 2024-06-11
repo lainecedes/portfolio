@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaine Wilberforce - Front-End Designer</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="../images/icons/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <%- include ('./partials/header.ejs'); %>
+    <main>
+        <section class="ade">
+            <h2>ADE: Redesigning Accesibility</h2>
+            <img src="../images/ade.png" alt="ADE: Redesigning Accesibility"/>
+            <div class="intro-text">
+                <p>In the project ADE: Redesigning Accessibility and the course Front End Development,
+                I chose to create an accessible "rework" for the ADE 2022 website.
+    
+                <p>The main goal of this project was to determine whether the website was sufficiently 
+                accessible for people with disabilities, and whether I could improve this.
+                </p>
+                
+                <p>The process began with researching the website using user tests and overall findings. 
+                I then made a breakdown sketch of all the sections of the website that I wanted to create, 
+                because the website is quite large and I couldn't create everything in a short amount of time.
+                </p>
+            </div>
+    
+            <img src="../images/ADE-redesigning-closeup.png" alt="Various sections of the site"/>
+    
+    
+            <div class=video-section>
+                <video autoplay muted loop>
+                    <source src="../videos/ade-video-compressed.mp4" alt="ADE campaign video">
+                </video>
+    
+                <div class="outro-text">
+                    <p>To make my website more accessible, I applied semantic HTML/CSS writing and tried to avoid 
+                        as many non-semantic tags/labels as possible by working with various selector applications.
+                        Accessibility testing was also done using restrictive visual aids and the VoiceOver program built in MacOS. 
+                    </p>
+                    <p>
+                        More information about the entire progress in Dutch can be found on my Github repository in the readme.md.
+                    </p>
+
+                </div>
+            </div>
+    
+        </section>
+    
+
+        <%- include ('./partials/footer.ejs'); %>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

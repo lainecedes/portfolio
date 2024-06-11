@@ -21,9 +21,14 @@ app.get('/', (req, res) => {
       res.status(500).send('Internal Server Error');
       return;
     }
+
     const projects = JSON.parse(data).projects; // Extracting the 'projects' array
     res.render('index', { projects });
   });
+});
+
+app.get('/ade-redesign', (req, res) => {
+  res.render('ade');
 });
 
 app.listen(port, () => {

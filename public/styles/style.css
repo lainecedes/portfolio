@@ -18,6 +18,8 @@
 --neon-blue: #4361eeff;
 --vivid-sky-blue: #4cc9f0ff;
 
+--ade-purple: #9872FF;
+
 }
 
 html {
@@ -533,6 +535,60 @@ header {
   padding: 0.5em;
   transition: all 0.3s ease;
 }
+
+
+
+
+/* ----------------------------- */
+/* ------- ADE REDESIGN -------- */
+/* ----------------------------- */
+
+.ade {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-color:var(--ade-purple);
+	padding: 5em 0 5em 0;
+}
+.ade h2 {
+	display: none;
+}
+
+.ade p {
+	font-size: 1.4em;
+}
+
+.ade img {
+	width: 58%;
+}
+
+.intro-text {
+	width: 50%;
+}
+
+video {
+	position: relative;
+	width: 30%;
+	
+}
+
+.video-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 3em;
+	margin: 5em 0 0 0;
+
+}
+
+.outro-text {
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+}
+
 
 
 /* ------------------------------ */
